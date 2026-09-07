@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f4ff" />
+    <title>乐听 · 本地音乐</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="window-shell">
+      <header class="titlebar"><div class="app-mark" aria-hidden="true"><i></i><i></i><i></i></div><span>乐听</span><span class="titlebar-page">本地音乐</span><div class="window-controls"><button aria-label="最小化">—</button><button aria-label="最大化">□</button><button aria-label="关闭">×</button></div></header>
+      <main class="local-page">
+        <section class="library-header"><div><span class="eyebrow">YOUR LIBRARY</span><h1>本地音乐</h1><p id="local-description">从这台设备导入音乐文件，离线也能畅听。</p></div><button class="import-button" id="import-music">＋ 导入音乐</button></section>
+        <section class="library-card" aria-label="本地音乐列表">
+          <div class="list-head"><span>歌曲</span><span>歌手</span><span>时长</span><span>操作</span></div>
+          <div class="local-empty" id="local-empty"><span class="local-note">♫</span><div><h2>还没有本地音乐</h2><p>支持带内嵌封面和歌词的 MP3，以及 WAV、M4A、OGG、FLAC 等音频文件。</p></div><button class="text-button import-link">选择文件 <span>›</span></button></div>
+          <div class="local-list" id="local-list" hidden></div>
+        </section>
+      </main>
+      <footer class="player" aria-label="播放控制器"><div class="now-playing"><button class="mini-cover fallback-cover" id="open-player" aria-label="展开专辑封面与歌词"></button><div><b id="now-title">未选择歌曲</b><p id="now-artist">本地音乐</p></div><button id="like" aria-label="喜欢这首歌">♡</button></div><div class="controls"><div class="play-controls"><button id="previous" aria-label="上一首">|‹</button><button class="big-play" id="play-toggle" aria-label="播放">▶</button><button id="next" aria-label="下一首">›|</button></div><div class="timeline"><time id="current-time">0:00</time><input id="progress" type="range" min="0" max="0" value="0" aria-label="播放进度" /><time id="duration">0:00</time></div></div><div class="player-options"><button id="open-lyrics" aria-label="展开歌词">▤</button><button id="mute" aria-label="静音">⌕</button><input id="volume" type="range" min="0" max="100" value="68" aria-label="音量" /></div></footer>
+    </div>
+    <section class="now-playing-view" id="now-playing-view" aria-hidden="true" aria-label="正在播放">
+      <div class="player-view-top"><button id="close-player" aria-label="关闭展开界面">⌄</button><span>正在播放</span><button aria-label="更多选项">•••</button></div>
+      <div class="expanded-player-content"><div class="expanded-art-wrap"><div class="expanded-art fallback-cover" id="expanded-art"><span>♫</span></div><p class="album-label">本地音乐</p></div><div class="lyrics-panel"><span class="eyebrow">LYRICS</span><h2 id="expanded-title">未选择歌曲</h2><p class="expanded-artist" id="expanded-artist">本地音乐</p><div class="lyrics" id="lyrics" tabindex="0"><p class="empty-lyrics">导入包含内嵌歌词的音乐文件后，将在这里展示歌词。</p></div></div></div>
+      <div class="expanded-controls"><input id="expanded-progress" type="range" min="0" max="0" value="0" aria-label="播放进度" /><div><time id="expanded-current-time">0:00</time><time id="expanded-duration">0:00</time></div><div class="expanded-buttons"><button id="expanded-previous" aria-label="上一首">|‹</button><button id="expanded-play" aria-label="播放或暂停">▶</button><button id="expanded-next" aria-label="下一首">›|</button></div></div>
+    </section>
+    <input id="music-files" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac" multiple hidden />
+    <input id="lrc-file" type="file" accept=".lrc,text/plain" hidden />
+    <audio id="audio-player" preload="metadata"></audio><div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
