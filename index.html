@@ -13,7 +13,7 @@
       <main class="local-page">
         <section class="library-header"><div><span class="eyebrow">YOUR LIBRARY</span><h1>本地音乐</h1><p id="local-description">从这台设备导入音乐文件，离线也能畅听。</p></div><button class="import-button" id="import-music">＋ 导入音乐</button></section>
         <section class="library-card" aria-label="本地音乐列表">
-          <div class="list-head"><span>歌曲</span><span>歌手</span><span>时长</span><span></span></div>
+          <div class="list-head"><span>歌曲</span><span>歌手</span><span>时长</span><span>操作</span></div>
           <div class="local-empty" id="local-empty"><span class="local-note">♫</span><div><h2>还没有本地音乐</h2><p>支持带内嵌封面和歌词的 MP3，以及 WAV、M4A、OGG、FLAC 等音频文件。</p></div><button class="text-button import-link">选择文件 <span>›</span></button></div>
           <div class="local-list" id="local-list" hidden></div>
         </section>
@@ -26,6 +26,7 @@
       <div class="expanded-controls"><input id="expanded-progress" type="range" min="0" max="0" value="0" aria-label="播放进度" /><div><time id="expanded-current-time">0:00</time><time id="expanded-duration">0:00</time></div><div class="expanded-buttons"><button id="expanded-previous" aria-label="上一首">|‹</button><button id="expanded-play" aria-label="播放或暂停">▶</button><button id="expanded-next" aria-label="下一首">›|</button></div></div>
     </section>
     <input id="music-files" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac" multiple hidden />
+    <input id="lrc-file" type="file" accept=".lrc,text/plain" hidden />
     <audio id="audio-player" preload="metadata"></audio><div class="toast" id="toast" role="status"></div>
     <script src="app.js"></script>
   </body>
